@@ -2,16 +2,20 @@ class Solution {
 public:
     int reverse(int x) {
         string s =to_string(x);
-        if (s[0]== '-'){
-            std::reverse(s.begin()+1,s.end());
-        } 
-        else{
-            std::reverse(s.begin(),s.end());
+        int start= 0;
+        if (s[0] =='-') {
+            start = 1;
+        }
+        int end= s.size() -1;
+        while (start <end){
+            swap(s[start],s[end]);
+            start++;
+            end--;
         }
         try{
             return stoi(s);
         }
-        catch (...){
+        catch(...){
             return 0;
         }
     }
